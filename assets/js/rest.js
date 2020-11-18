@@ -39,28 +39,29 @@ jQuery(function() {
     });
 
  // Edit Post ~~~~~~~~~~~~~~~~~~~~~~~
- jQuery(document).on("click", ".post-edit", function(){
-    var title = jQuery(this).parents("tr").find("td:nth(1)").text();
+ jQuery(document).on("click", ".post-edit", function(){    
+    var title = jQuery(this).parents("tr").find("td:nth(1)").text();    
     var content = jQuery(this).parents("tr").find("td:nth(2)").text();
     jQuery( "#postEdit #title_edit" ).val(title);
     jQuery( "#postEdit #content_edit" ).val(content);
-    jQuery( "#post-id" ).val(jQuery(this).attr("data-id"));
+    // jQuery( "#post-id" ).val(jQuery(this).attr("data-id"));
     
 
-    jQuery("#frmEditPost").on("submit", function (){
-        var frmdata = jquery(this).serialize();
-        var nonce_param = "contoller=posts&method=update_post";
-        jQuery.post(ajaxurl + "/api/get_nonce/", nonce_param, function (response){
-            var nonce = response.nonce;
-            frmdata += "&nonce=" + nonce;
-            console.log(frmdata);
-            jQuery.post(ajaxurl + "/api/posts/update_post/", frmdata, function (response) {
-                setTimeout(function(){
-                    location.reload();
-                },1200);
-            });
-        })
-    })
+    // jQuery("#frmEditPost").on("submit", function (){
+    //     var frmdata = jquery(this).serialize();
+        // var nonce_param = "contoller=posts&method=update_post";
+        // jQuery.post(ajaxurl + "/api/get_nonce/", nonce_param, function(response){
+        //     console.log(response);
+            // var nonce = response.nonce;
+            // frmdata += "&nonce=" + nonce;
+            // console.log(frmdata);
+            // jQuery.post(ajaxurl + "/api/posts/update_post/", frmdata, function (response) {
+            //     setTimeout(function(){
+            //         location.reload();
+            //     },1200);
+            // });
+    //     })
+    // })
 
 
         
